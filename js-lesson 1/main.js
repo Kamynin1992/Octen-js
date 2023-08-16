@@ -1,0 +1,27 @@
+let greeting = 'hello';
+let school = 'owu';
+let domain = 'com';
+let country = 'ua';
+let number1 = 1;
+let number10 = 10;
+let negativeNumber = -999;
+let number123 = 123;
+let pi = 3.14;
+let e = 2.7;
+let hex = 16;
+let isTrue = true;
+let isFalse = false;
+
+console.log(greeting);
+console.log(school);
+console.log(domain);
+console.log(country);
+console.log(number1);
+console.log(number10);
+console.log(negativeNumber);
+console.log(number123);
+console.log(pi);
+console.log(e);
+console.log(hex);
+console.log(isTrue);
+console.log(isFalse);
