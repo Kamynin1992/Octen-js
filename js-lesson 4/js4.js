@@ -231,7 +231,7 @@ function exchange(sumUAH, currencyValues, exchangeCurrency) {
 
 
     if (exchangeRate === 0) {
-        console.log("Валюта не знайдена.");
+        console.log("Валюта не знайдена");
         return 0;
     }
 
