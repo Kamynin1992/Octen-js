@@ -171,21 +171,84 @@
 
 /////////////- створити функцію яка повертає найменьше число з масиву
 
-function Number(array) {
-    let min = array[0];
+// function Number(array) {
+//     let min = array[0];
+//
+//     for (let i = 1; i < array.length; i++) {
+//         if (array[i] < min) {
+//             min = array[i];
+//         }
+//     }
+//
+//     return min;
+// }
+//
+// let numbers = [5, 2, 8, 1, -100, -3, 0, -8, 48, -33, 10];
+// let minNumber = Number(numbers);
+// console.log("Найменше число", minNumber);
 
-    for (let i = 1; i < array.length; i++) {
-        if (array[i] < min) {
-            min = array[i];
+
+///- створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+
+// function sum(arr) {
+//     let total = 0;
+//
+//     for (let i = 0; i < arr.length; i++) {
+//         total += arr[i];
+//     }
+//
+//     return total;
+// }
+//
+// let numbers = [1, 2, 10];
+// let result = sum(numbers);
+// console.log(result);
+
+////- створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+
+// function swap(arr, index1, index2) {
+//     let temp = arr[index1];
+//     arr[index1] = arr[index2];
+//     arr[index2] = temp;
+//     return arr;
+// }
+//
+// let result = swap([11, 22, 33, 44], 0, 1);
+// console.log(result);
+
+///- Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+
+function exchange(sumUAH, currencyValues, exchangeCurrency) {
+    let exchangeRate = 0;
+
+
+    for (let i = 0; i < currencyValues.length; i++) {
+        if (currencyValues[i].currency === exchangeCurrency) {
+            exchangeRate = currencyValues[i].value;
+            break;
         }
     }
 
-    return min;
+
+    if (exchangeRate === 0) {
+        console.log("Валюта не знайдена.");
+        return 0;
+    }
+
+
+    let exchangedAmount = sumUAH / exchangeRate;
+    return exchangedAmount;
 }
 
-let numbers = [5, 2, 8, 1, -100, -3, 0, -8, 48, -33, 10];
-let minNumber = Number(numbers);
-console.log("Найменше число", minNumber);
+let currencyValues = [
+    {currency: 'USD', value: 40},
+    {currency: 'EUR', value: 42}
+];
+
+let exchangedAmount = exchange(10000, currencyValues, 'USD');
+console.log(exchangedAmount);
+
+
 
 
 
