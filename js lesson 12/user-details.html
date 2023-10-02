@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі користувача</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #userDetails {
+            border: solid 1px blue;
+            text-align: center;
+            font-size: 20px;
+            width: 500px;
+            margin-left: 31.5%;
+            color: #d02020;
+        }
+    </style>
+</head>
+<body>
+<h1>Деталі користувача</h1>
+<div id="userDetails"></div>
+
+<script>
+    const urlParams = new URLSearchParams(location.search);
+    const userId = urlParams.get('id');
+
+    function fetchUserDetails(userId) {
+        fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
+            .then(response => response.json())
+            .then(user => {
+                const userDetails = document.getElementById('userDetails');
+                const userFields = Object.keys(user);
+
+                userFields.forEach(field => {
+                    const fieldElement = document.createElement('p');
+                    fieldElement.textContent = `${field}: ${user[field]}`;
+                    userDetails.appendChild(fieldElement);
+                });
+            })
+            .catch(error => console.error('Помилка при отриманні деталей користувача:', error));
+    }
+
+    onload = fetchUserDetails(userId);
+
+</script>
+</body>
+</html>
